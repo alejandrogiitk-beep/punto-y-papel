@@ -85,7 +85,7 @@ punto-y-papel/
 
 ```bash
 # 1. Clonar el repositorio
-git clone https://github.com/USUARIO/punto-y-papel.git
+git clone https://github.com/alejandrogiitk-beep/punto-y-papel.git
 cd punto-y-papel
 
 # 2. Crear y activar un entorno virtual
@@ -218,4 +218,3 @@ Equipo **Punto & Papel**, 5.º Programación A, CECyTE Guanajuato, Unidad Acadé
 - Josué Alexander Soto Moreno
 
 Noviembre de 2026.
-# punto-y-papel
