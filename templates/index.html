@@ -1,0 +1,67 @@
+
+{% extends "base.html" %}
+
+{% block titulo %}Inicio | Punto & Papel{% endblock %}
+
+{% block contenido %}
+
+<section class="hero">
+
+    <article class="hero-texto">
+        <p class="etiqueta">TU PAPELERIA DE CONFIANZA</p>
+
+        <h1>¡Todo lo que necesitas para crear!</h1>
+
+        <p>
+            Encuentra cuadernos, lapices, colores,
+            materiales escolares y articulos de oficina.
+        </p>
+
+        <a class="boton" href="{{ url_for('registro') }}">
+            Crear una cuenta
+        </a>
+
+        <a class="boton secundario"
+           href="{{ url_for('login') }}">
+            Acceder al sistema
+        </a>
+    </article>
+
+    <figure class="hero-imagen">
+        <img src="/static/img/materiales.jpg" alt="Material escolar y articulos de papeleria">
+        <figcaption>Inspira, aprende y crea.</figcaption>
+    </figure>
+
+</section>
+
+<section class="beneficios">
+    <h2>¿Por que elegirnos?</h2>
+
+    <section class="tarjetas">
+
+        <article class="tarjeta">
+            <h3>📚 Material escolar</h3>
+            <p>Productos para estudiantes de todos los niveles.</p>
+        </article>
+
+        <article class="tarjeta">
+            <h3>✏️ Calidad y variedad</h3>
+            <p>Encuentra todo lo necesario para tus actividades.</p>
+        </article>
+
+        <article class="tarjeta">
+            <h3>📦 Inventario organizado</h3>
+            <p>Controlamos nuestros productos mediante tecnologia.</p>
+        </article>
+
+    </section>
+</section>
+
+<section class="estadistica">
+    <h2>Nuestro inventario</h2>
+    <p>Actualmente contamos con</p>
+    <strong>{{ cantidad }}</strong>
+    <p>productos registrados en nuestro sistema.</p>
+</section>
+
+{% endblock %}

@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Punto y Papel, papeleria y servicios escolares.">
+
+    <title>{% block titulo %}Punto & Papel{% endblock %}</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+
+    <a href="#contenido" class="saltar">
+    Saltar al contenido principal
+</a>
+    <header class="encabezado">
+        <a class="logo" href="{{ url_for('inicio') }}">
+            <figure>
+                <img src="/static/img/logopapeleria.jpg" alt="Logotipo de Punto y Papel">
+            </figure>
+            <strong>Punto & Papel</strong>
+        </a>
+
+        <nav aria-label="Navegacion principal">
+            <ul class="menu">
+                <li><a href="{{ url_for('inicio') }}">Inicio</a></li>
+
+                {% if session.get('usuario') %}
+                    <li><a href="{{ url_for('dashboard') }}">Panel</a></li>
+                    <li><a href="{{ url_for('ver_productos') }}">Inventario</a></li>
+                    <li><a href="{{ url_for('logout') }}">Salir</a></li>
+                {% else %}
+                    <li><a href="{{ url_for('login') }}">Iniciar sesion</a></li>
+                    <li><a href="{{ url_for('registro') }}">Registrarse</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+
+    <main id="contenido">
+
+        {% with mensajes = get_flashed_messages(with_categories=true) %}
+            {% for categoria, mensaje in mensajes %}
+                <article class="mensaje {{ categoria }}"
+                         role="alert">
+                    {{ mensaje }}
+                </article>
+            {% endfor %}
+        {% endwith %}
+
+        {% block contenido %}{% endblock %}
+
+    </main>
+
+    <footer class="pie">
+        <section>
+            <h2>Punto & Papel</h2>
+            <p>Todo para tus ideas, tareas y proyectos.</p>
+            <p>Horario: lunes a sabado, 8:00 a 20:00.</p>
+            <p>&copy; 2026 Punto & Papel. Todos los derechos reservados.</p>
+        </section>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"
+            defer></script>
+
+</body>
+</html>

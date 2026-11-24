@@ -1,0 +1,20 @@
+# Entorno virtual
+.venv/
+venv/
+
+# Variables de entorno (contienen claves)
+.env
+
+# Base de datos local de SQLite (se crea sola al ejecutar app.py)
+database/*.db
+
+# Archivos generados por Python y pytest
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Archivos del sistema y editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

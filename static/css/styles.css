@@ -1,0 +1,570 @@
+
+/* ACCESIBILIDAD WCAG 2.2 AA */
+
+:focus-visible {
+    outline: 3px solid #173f70;
+    outline-offset: 4px;
+}
+
+/* Contraste y legibilidad */
+
+body {
+    color: #303846;
+    background: #fff8ef;
+    line-height: 1.6;
+}
+
+/* Enlaces */
+
+a {
+    color: #174d78;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* Botones */
+
+button,
+.boton {
+    min-height: 44px;
+    min-width: 44px;
+    cursor: pointer;
+}
+
+/* Campos */
+
+input,
+select,
+textarea {
+    min-height: 44px;
+    border: 2px solid #626262;
+}
+
+/* Errores */
+
+.mensaje.error {
+    background: #fff0ee;
+    color: #8b1e16;
+    border: 2px solid #8b1e16;
+}
+
+/* Texto de éxito */
+
+.mensaje.success {
+    background: #e8f5ec;
+    color: #175c35;
+    border: 2px solid #175c35;
+}
+
+/* Adaptación a pantallas */
+
+img {
+    max-width: 100%;
+}
+
+@media (max-width: 800px) {
+    .hero {
+        grid-template-columns: 1fr;
+    }
+
+    .tarjetas {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+.saltar {
+    position: absolute;
+    left: -9999px;
+}
+
+.saltar:focus {
+    left: 10px;
+    top: 10px;
+    z-index: 1000;
+    background: white;
+    padding: 15px;
+}
+/* =================================
+   CONFIGURACION GENERAL
+================================= */
+
+:root {
+    --naranja: #f47b35;
+    --naranja-oscuro: #d95e20;
+    --azul: #254d70;
+    --crema: #fff8ef;
+    --blanco: #ffffff;
+    --texto: #303846;
+    --gris: #e8e8e8;
+    --verde: #23865b;
+    --rojo: #c0392b;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--crema);
+    color: var(--texto);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+}
+
+a {
+    color: var(--azul);
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* =================================
+   ENCABEZADO Y NAVEGACION
+================================= */
+
+.encabezado {
+    background: var(--blanco);
+    padding: 15px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    box-shadow: 0 3px 12px #00000010;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 22px;
+    color: var(--naranja);
+}
+
+.logo figure {
+    width: 45px;
+}
+
+.logo img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.menu a {
+    font-weight: bold;
+    transition: color .3s;
+}
+
+.menu a:hover {
+    color: var(--naranja);
+}
+
+/* =================================
+   CONTENIDO PRINCIPAL
+================================= */
+
+main {
+    min-height: 75vh;
+    padding: 35px 7%;
+}
+
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 45px;
+    padding: 45px 0;
+}
+
+.hero h1 {
+    font-size: clamp(35px, 5vw, 58px);
+    color: var(--azul);
+    line-height: 1.15;
+    margin: 15px 0;
+}
+
+.hero-texto > p {
+    margin-bottom: 20px;
+}
+
+.etiqueta {
+    color: var(--naranja);
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.hero-imagen img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 25px;
+}
+
+figcaption {
+    text-align: center;
+    margin-top: 10px;
+    color: #666;
+}
+
+/* =================================
+   BOTONES
+================================= */
+
+.boton {
+    display: inline-block;
+    background: var(--naranja);
+    color: white;
+    border: none;
+    padding: 13px 22px;
+    margin: 7px 5px 7px 0;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s;
+    font-size: 15px;
+}
+
+.boton:hover {
+    background: var(--naranja-oscuro);
+    transform: translateY(-3px);
+}
+
+.secundario {
+    background: var(--azul);
+}
+
+.secundario:hover {
+    background: #173650;
+}
+
+.completo {
+    width: 100%;
+}
+
+.eliminar {
+    background: var(--rojo);
+}
+
+/* =================================
+   TARJETAS
+================================= */
+
+.beneficios {
+    padding: 40px 0;
+    text-align: center;
+}
+
+.beneficios h2,
+.acciones h2 {
+    color: var(--azul);
+    margin-bottom: 25px;
+}
+
+.tarjetas,
+.estadisticas,
+.acciones {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    margin-top: 25px;
+}
+
+.tarjeta,
+.formulario-tarjeta {
+    background: var(--blanco);
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 5px 20px #0000000c;
+    transition: .3s;
+}
+
+.tarjeta:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px #00000015;
+}
+
+.tarjeta h2,
+.tarjeta h3 {
+    color: var(--azul);
+    margin-bottom: 12px;
+}
+
+.tarjeta strong {
+    font-size: 35px;
+    color: var(--naranja);
+}
+
+.alerta {
+    border-left: 5px solid var(--rojo);
+}
+
+.estadistica {
+    background: var(--azul);
+    color: white;
+    padding: 35px;
+    border-radius: 20px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.estadistica strong {
+    display: block;
+    font-size: 45px;
+    color: #ffc18c;
+}
+
+/* =================================
+   FORMULARIOS
+================================= */
+
+.contenedor-formulario {
+    max-width: 500px;
+    margin: 30px auto;
+}
+
+.formulario-tarjeta h1,
+.formulario-tarjeta h2 {
+    color: var(--azul);
+    margin-bottom: 12px;
+}
+
+form {
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    margin: 13px 0 6px;
+    font-weight: bold;
+}
+
+input,
+select,
+textarea {
+    display: block;
+    width: 100%;
+    padding: 13px;
+    border: 1px solid var(--gris);
+    border-radius: 9px;
+    background: white;
+    color: var(--texto);
+    font: inherit;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid var(--naranja);
+    border-color: var(--naranja);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 90px;
+}
+
+/* =================================
+   DASHBOARD
+================================= */
+
+.bienvenida {
+    background: var(--azul);
+    color: white;
+    padding: 35px;
+    border-radius: 18px;
+}
+
+.bienvenida h1 {
+    font-size: 32px;
+}
+
+.dashboard .estadisticas {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.dashboard .acciones {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+/* El titulo de la seccion ocupa todo el ancho de la cuadricula */
+.acciones > h2 {
+    grid-column: 1 / -1;
+    margin-bottom: 0;
+}
+
+/* =================================
+   INVENTARIO Y TABLAS
+================================= */
+
+.inventario > header {
+    margin-bottom: 25px;
+}
+
+.inventario h1 {
+    color: var(--azul);
+}
+
+.tabla-contenedor {
+    background: white;
+    margin-top: 35px;
+    padding: 22px;
+    border-radius: 15px;
+    overflow-x: auto;
+}
+
+.tabla-contenedor h2 {
+    margin-bottom: 20px;
+    color: var(--azul);
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+}
+
+caption {
+    text-align: left;
+    font-weight: bold;
+    padding: 10px;
+}
+
+th,
+td {
+    padding: 13px;
+    text-align: left;
+    border-bottom: 1px solid var(--gris);
+}
+
+th {
+    background: var(--azul);
+    color: white;
+}
+
+tbody tr:hover {
+    background: var(--crema);
+}
+
+.stock-bajo {
+    color: var(--rojo);
+}
+
+details {
+    margin-bottom: 8px;
+}
+
+summary {
+    color: var(--azul);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* =================================
+   MENSAJES
+================================= */
+
+.mensaje {
+    padding: 15px;
+    border-radius: 9px;
+    margin-bottom: 15px;
+}
+
+.success {
+    background: #d8f5e5;
+    color: #17633d;
+}
+
+.error {
+    background: #ffe1df;
+    color: #a52b25;
+}
+
+/* =================================
+   PIE DE PAGINA
+================================= */
+
+.pie {
+    background: var(--azul);
+    color: white;
+    text-align: center;
+    padding: 35px 15px;
+}
+
+.pie h2 {
+    color: #ffc18c;
+}
+
+/* =================================
+   RESPONSIVE
+================================= */
+
+@media (max-width: 800px) {
+
+    .encabezado {
+        flex-direction: column;
+    }
+
+    .menu {
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+    }
+
+    .tarjetas,
+    .estadisticas,
+    .dashboard .estadisticas,
+    .dashboard .acciones {
+        grid-template-columns: 1fr;
+    }
+
+    main {
+        padding: 25px 5%;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .menu {
+        gap: 10px;
+        font-size: 14px;
+    }
+
+    .formulario-tarjeta {
+        padding: 18px;
+    }
+
+    .tabla-contenedor {
+        padding: 10px;
+    }
+}
